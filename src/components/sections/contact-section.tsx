@@ -1,9 +1,9 @@
 "use client";
 
+import type { LucideIcon } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import { motion } from "motion/react";
 import { portfolioData } from "@/data/portfolio";
-import { Github, Twitter, Linkedin } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   github: Github,
@@ -25,11 +25,11 @@ export default function ContactSection() {
         transition={{ duration: 0.6 }}
         className="text-center"
       >
-        <h2 className="mb-8 text-3xl font-bold text-white md:text-4xl">
+        <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
           Contact
         </h2>
         <p className="mb-6 text-base text-gray-300 md:text-lg">
-          お気軽にお問い合わせください
+          I'm always open to discussing new projects and opportunities.
         </p>
         <div className="flex justify-center gap-6">
           {portfolioData.socialLinks.map((link, index) => {

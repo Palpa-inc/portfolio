@@ -38,7 +38,7 @@ export const portfolioData: PortfolioData = {
   personal: {
     name: "Masaki Kitsugi",
     role: "Engineer & Entrepreneur",
-    bio: "モダンなWeb技術を活用して、ユーザー体験を向上させるアプリケーションを開発しています。",
+    bio: "I develop applications using modern web technologies to enhance user experience.",
     taglines: [
       {
         text: "Code. Create. Iterate.",
@@ -46,24 +46,24 @@ export const portfolioData: PortfolioData = {
       },
       {
         text: "I build products that makes the world more beautiful and fun.",
-        highlights: ["世界を変える"],
+        highlights: ["change the world"],
       },
     ],
   },
   achievements: [
     {
-      title: "個人プロジェクト",
-      description: "Next.jsとTypeScriptで構築したポートフォリオサイト",
+      title: "Personal Project",
+      description: "Portfolio site built with Next.js and TypeScript",
       type: "project",
     },
     {
-      title: "オープンソース",
-      description: "GitHubで複数のOSSプロジェクトに貢献",
+      title: "Open Source",
+      description: "Contributed to multiple OSS projects on GitHub",
       type: "achievement",
     },
     {
-      title: "公開サービス",
-      description: "ReactとNode.jsで構築したWebアプリケーション",
+      title: "Published Service",
+      description: "Web application built with React and Node.js",
       url: "https://example.com",
       type: "service",
     },
