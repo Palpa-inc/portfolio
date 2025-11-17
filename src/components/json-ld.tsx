@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { portfolioData } from "@/data/portfolio";
 
 const siteUrl = "https://masaki-kitsugi.com";
@@ -41,18 +42,27 @@ export function JsonLd() {
 
   return (
     <>
-      <script
+      <Script
+        id="person-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
-      <script
+        strategy="afterInteractive"
+      >
+        {JSON.stringify(personSchema)}
+      </Script>
+      <Script
+        id="website-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
+        strategy="afterInteractive"
+      >
+        {JSON.stringify(websiteSchema)}
+      </Script>
+      <Script
+        id="breadcrumb-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+        strategy="afterInteractive"
+      >
+        {JSON.stringify(breadcrumbSchema)}
+      </Script>
     </>
   );
 }
