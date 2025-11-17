@@ -4,6 +4,9 @@ const categoryLabels = {
   frontend: "Frontend",
   backend: "Backend",
   tools: "Tools",
+  business: "Business",
+  design: "Design",
+  ai: "AI / AIツール",
   other: "Other",
 };
 

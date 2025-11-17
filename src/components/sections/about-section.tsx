@@ -3,7 +3,57 @@
 import { motion } from "motion/react";
 import { portfolioData } from "@/data/portfolio";
 
+const categoryLabels: Record<string, string> = {
+  frontend: "Frontend",
+  backend: "Backend",
+  business: "Business",
+  design: "Design",
+  tools: "Tools",
+  ai: "AI",
+  other: "Other",
+};
+
+// カテゴリごとのバッジの色クラスを取得
+const getCategoryBadgeClasses = (category: string) => {
+  const baseClasses =
+    "rounded-full px-4 py-2 text-sm backdrop-blur-sm transition-colors";
+
+  switch (category) {
+    case "frontend":
+      return `${baseClasses} border-cyan-500/30 bg-cyan-500/10 text-cyan-100 hover:bg-cyan-500/20`;
+    case "backend":
+      return `${baseClasses} border-emerald-500/30 bg-emerald-500/10 text-emerald-100 hover:bg-emerald-500/20`;
+    case "business":
+      return `${baseClasses} border-purple-500/30 bg-purple-500/10 text-purple-100 hover:bg-purple-500/20`;
+    case "design":
+      return `${baseClasses} border-pink-500/30 bg-pink-500/10 text-pink-100 hover:bg-pink-500/20`;
+    case "tools":
+      return `${baseClasses} border-amber-400/30 bg-amber-400/10 text-amber-100 hover:bg-amber-400/20`;
+    case "ai":
+      return `${baseClasses} border-indigo-400/30 bg-indigo-400/10 text-indigo-100 hover:bg-indigo-400/20`;
+    case "other":
+      return `${baseClasses} border-slate-400/30 bg-slate-400/10 text-slate-100 hover:bg-slate-400/20`;
+    default:
+      return `${baseClasses} border-white/20 bg-white/10 text-gray-300 hover:bg-white/20`;
+  }
+};
+
 export default function AboutSection() {
+  // Bioを段落に分割
+  const bioParagraphs = portfolioData.personal.bio.split(". ").filter(Boolean);
+
+  // スキルをカテゴリ別にグループ化
+  const skillsByCategory = portfolioData.skills.reduce(
+    (acc, skill) => {
+      if (!acc[skill.category]) {
+        acc[skill.category] = [];
+      }
+      acc[skill.category].push(skill);
+      return acc;
+    },
+    {} as Record<string, typeof portfolioData.skills>
+  );
+
   return (
     <section
       id="about"
@@ -16,28 +66,61 @@ export default function AboutSection() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="mb-8 text-3xl font-bold text-white md:text-4xl">
-          About
+          Bio
         </h2>
-        <div className="space-y-6">
-          <p className="text-base leading-relaxed text-gray-300 md:text-lg">
-            {portfolioData.personal.bio}
-          </p>
+        <div className="space-y-8">
+          {/* Bio Section */}
+          <div className="space-y-4">
+            {bioParagraphs.map((paragraph, index) => {
+              const trimmedParagraph = paragraph.trim();
+              return (
+                <motion.p
+                  key={`bio-${trimmedParagraph.substring(0, 20)}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-base leading-relaxed text-gray-300 md:text-lg"
+                >
+                  {trimmedParagraph}
+                  {index < bioParagraphs.length - 1 ? "." : ""}
+                </motion.p>
+              );
+            })}
+          </div>
+
+          {/* Skills Section */}
           <div>
-            <h3 className="mb-4 text-xl font-semibold text-white">
+            <h3 className="mb-6 text-xl font-semibold text-white">
               Skills
             </h3>
-            <div className="flex flex-wrap gap-3">
-              {portfolioData.skills.map((skill, index) => (
-                <motion.span
-                  key={skill.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+            <div className="space-y-6">
+              {Object.entries(skillsByCategory).map(([category, skills]) => (
+                <motion.div
+                  key={category}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-gray-300 backdrop-blur-sm"
+                  transition={{ duration: 0.5 }}
                 >
-                  {skill.name}
-                </motion.span>
+                  <h4 className="mb-3 text-sm font-medium text-gray-400 uppercase tracking-wider">
+                    {categoryLabels[category] || category}
+                  </h4>
+                  <div className="flex flex-wrap gap-3">
+                    {skills.map((skill, index) => (
+                      <motion.span
+                        key={skill.name}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.05 }}
+                        className={getCategoryBadgeClasses(category)}
+                      >
+                        {skill.name}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>

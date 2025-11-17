@@ -46,7 +46,7 @@ export default function MainSectionGlass() {
       <div
         ref={scrollContainerRef}
         onScroll={handleScroll}
-        className="h-full overflow-y-auto overscroll-contain px-8 py-12 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+        className="h-full overflow-y-auto overscroll-contain px-8 pb-16 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
       >
         <HomeSection />
         <AboutSection />

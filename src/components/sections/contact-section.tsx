@@ -50,7 +50,7 @@ export default function ContactSection() {
                 whileTap={{ scale: 0.9 }}
                 className="text-gray-400 transition-colors hover:text-white"
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-7 w-7" />
               </motion.a>
             );
           })}
