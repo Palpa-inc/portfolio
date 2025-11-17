@@ -16,11 +16,17 @@ export interface Skill {
   level: "beginner" | "intermediate" | "advanced";
 }
 
+export interface Tagline {
+  text: string;
+  highlights: string[];
+}
+
 export interface PortfolioData {
   personal: {
     name: string;
     role: string;
     bio: string;
+    taglines: Tagline[];
     avatar?: string;
   };
   achievements: Achievement[];
@@ -30,9 +36,19 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   personal: {
-    name: "Your Name",
-    role: "Software Engineer",
+    name: "Masaki Kitsugi",
+    role: "Engineer & Entrepreneur",
     bio: "モダンなWeb技術を活用して、ユーザー体験を向上させるアプリケーションを開発しています。",
+    taglines: [
+      {
+        text: "Code. Create. Iterate.",
+        highlights: [],
+      },
+      {
+        text: "I build products that makes the world more beautiful and fun.",
+        highlights: ["世界を変える"],
+      },
+    ],
   },
   achievements: [
     {
