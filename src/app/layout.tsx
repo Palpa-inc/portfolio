@@ -1,10 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import { generateMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/json-ld";
 
-export const metadata: Metadata = {
-  title: "Portfolio | Software Engineer",
-  description: "モダンなWeb技術を活用したエンジニアのポートフォリオサイト",
-};
+export const metadata = generateMetadata();
 
 export default function RootLayout({
   children,
@@ -20,6 +18,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800&display=swap"
           rel="stylesheet"
         />
+        <JsonLd />
       </head>
       <body className="font-sans antialiased"> 
         {children}

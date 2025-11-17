@@ -29,7 +29,7 @@ const FlickeringGrid: React.FC<FlickeringGridProps> = ({
   width,
   height,
   className = "z-0 fixed inset-0 size-full",
-  maxOpacity = 0.2,
+  maxOpacity = 0.25,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
