@@ -3,6 +3,9 @@ declare module "typeit" {
     speed?: number;
     deleteSpeed?: number;
     loop?: boolean;
+    afterComplete?: (instance?: any) => Promise<void> | void;
+    lifeLike?: boolean;
+    cursorChar?: string;
     [key: string]: unknown;
   }
 

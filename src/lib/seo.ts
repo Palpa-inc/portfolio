@@ -1,5 +1,5 @@
-import { portfolioData } from "@/data/portfolio";
 import type { Metadata } from "next";
+import { portfolioData } from "@/data/portfolio";
 
 const siteUrl = "https://masaki-kitsugi.com";
 const siteName = `${portfolioData.personal.name} - Portfolio`;
@@ -28,7 +28,7 @@ export function generateMetadata(): Metadata {
     creator: portfolioData.personal.name,
     openGraph: {
       type: "website",
-      locale: "ja_JP",
+      locale: "en_US",
       url: siteUrl,
       siteName,
       title: defaultTitle,
@@ -74,4 +74,3 @@ export const seoConfig = {
   defaultDescription,
   ogImage: `${siteUrl}/img/og-image.png`,
 };
-

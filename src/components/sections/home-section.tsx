@@ -4,7 +4,11 @@ import { motion } from "motion/react";
 import TaglineTypeIt from "@/components/tagline-typeit";
 import { portfolioData } from "@/data/portfolio";
 
-export default function HomeSection() {
+interface HomeSectionProps {
+  onTypeItComplete?: () => void;
+}
+
+export default function HomeSection({ onTypeItComplete }: HomeSectionProps) {
   return (
     <section
       id="home"
@@ -24,7 +28,7 @@ export default function HomeSection() {
         </p>
 
         {/* タイプライターアニメーション（タグライン） */}
-        <TaglineTypeIt />
+        <TaglineTypeIt onComplete={onTypeItComplete} />
       </motion.div>
     </section>
   );

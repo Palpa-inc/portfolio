@@ -11,6 +11,7 @@ import WorksSection from "@/components/sections/works-section";
 export default function MainSectionGlass() {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isScrollable, setIsScrollable] = useState(false);
+  const [isTypeItComplete, setIsTypeItComplete] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,12 +49,12 @@ export default function MainSectionGlass() {
         onScroll={handleScroll}
         className="h-full overflow-y-auto overscroll-contain px-8 pb-16 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
       >
-        <HomeSection />
+        <HomeSection onTypeItComplete={() => setIsTypeItComplete(true)} />
         <AboutSection />
         <WorksSection />
         <ContactSection />
       </div>
-      {isAtTop && isScrollable && (
+      {isAtTop && isScrollable && isTypeItComplete && (
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none">
           <motion.div
             animate={{ y: [0, 8, 0] }}

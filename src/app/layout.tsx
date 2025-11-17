@@ -1,6 +1,6 @@
 import "./globals.css";
-import { generateMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
+import { generateMetadata } from "@/lib/seo";
 
 export const metadata = generateMetadata();
 
@@ -10,7 +10,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

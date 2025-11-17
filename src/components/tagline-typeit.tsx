@@ -2,8 +2,18 @@
 
 import { useEffect, useRef } from "react";
 
-export default function TaglineTypeIt() {
+interface TaglineTypeItProps {
+  onComplete?: () => void;
+}
+
+export default function TaglineTypeIt({ onComplete }: TaglineTypeItProps) {
   const taglineRef = useRef<HTMLDivElement>(null);
+  const onCompleteRef = useRef(onComplete);
+
+  // 最新のonCompleteを保持
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     if (!taglineRef.current || typeof window === "undefined") return;
@@ -17,11 +27,16 @@ export default function TaglineTypeIt() {
       if (!element) return;
 
       instance = new TypeIt(element, {
-        speed: 60, // タイピング速度
+        speed: 50, // タイピング速度
         deleteSpeed: 50, // 削除速度
         loop: false, // 1回のみ、ループなし
         lifeLike: true,
         cursorChar: "▌",
+        afterComplete: async () => {
+          if (onCompleteRef.current) {
+            onCompleteRef.current();
+          }
+        },
       })
         // オープニング: 自己紹介の言い換え
         .type("I'm a developer")
