@@ -16,9 +16,9 @@ export default function BioSection() {
 
         <div className="space-y-3">
           <h3 className="text-lg font-semibold text-white mb-3">実績・サービス</h3>
-          {achievements.map((achievement, index) => (
+          {achievements.map((achievement) => (
             <div
-              key={index}
+              key={achievement.title}
               className="group rounded-lg border border-white/5 bg-white/5 p-4 transition-all duration-200 hover:bg-white/10 hover:border-white/10"
             >
               <div className="flex items-start justify-between">
@@ -42,6 +42,7 @@ export default function BioSection() {
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
+                      <title>{achievement.title}</title>
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"

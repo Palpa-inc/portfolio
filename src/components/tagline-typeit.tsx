@@ -100,7 +100,7 @@ export default function TaglineTypeIt({ onComplete }: TaglineTypeItProps) {
     <div className="mb-8 h-[16em]">
       <div
         ref={taglineRef}
-        className="text-lg font-medium text-gray-200 md:text-xl leading-relaxed"
+        className="text-lg font-medium text-slate-600 dark:text-gray-200 md:text-xl leading-relaxed"
       />
     </div>
   );

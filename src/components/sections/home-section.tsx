@@ -20,10 +20,10 @@ export default function HomeSection({ onTypeItComplete }: HomeSectionProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="mb-1 text-3xl font-bold text-white">
+        <h1 className="mb-1 text-3xl font-bold text-slate-600 dark:text-white">
           {portfolioData.personal.name}
         </h1>
-        <p className="mb-6 text-sm text-gray-300">
+        <p className="mb-6 text-sm text-slate-400 dark:text-gray-300">
           {portfolioData.personal.role}
         </p>
 

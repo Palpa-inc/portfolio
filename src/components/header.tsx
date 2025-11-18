@@ -117,14 +117,14 @@ export default function Header() {
                 onClick={() => handleNavClick(item.id)}
                 className={cn(
                   "relative px-4 py-2 text-sm font-medium transition-colors cursor-pointer hover:text-white",
-                  isActive ? "text-white" : "text-gray-400"
+                  isActive ? "text-white" : "dark:text-gray-400 text-slate-600"
                 )}
                 type="button"
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute inset-0 rounded-full bg-white/30"
+                    className="absolute inset-0 rounded-full dark:bg-white/30 bg-slate-600"
                     transition={{
                       type: "spring",
                       stiffness: 380,

@@ -25,10 +25,10 @@ export default function ContactSection() {
         transition={{ duration: 0.6 }}
         className="text-center"
       >
-        <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+        <h2 className="mb-4 text-3xl font-bold text-slate-600 dark:text-white md:text-4xl">
           Contact
         </h2>
-        <p className="mb-6 text-base text-gray-300 md:text-lg">
+        <p className="mb-6 text-base dark:text-gray-300 text-slate-500 md:text-lg max-w-xs mx-auto">
           I'm always open to discussing new projects and opportunities.
         </p>
         <div className="flex justify-center gap-6">
