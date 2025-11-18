@@ -73,7 +73,7 @@ export default function WorksSection() {
                 />
 
                 {/* 暗いオーバーレイ */}
-                <div className="absolute inset-0 z-10 bg-linear-to-b from-black/30 via-black/40 to-black/50 dark:from-white/30 dark:via-white/40 dark:to-white/50 transition-opacity duration-300 group-hover:from-black/20 group-hover:via-black/30 group-hover:to-black/40" />
+                <div className="absolute inset-0 z-10 bg-linear-to-b from-black/30 via-black/40 to-black/50 transition-opacity duration-300 group-hover:from-black/20 group-hover:via-black/30 group-hover:to-black/40" />
 
                 {/* コンテンツ */}
                 <div className="relative z-20 h-full flex flex-col justify-between p-8 sm:p-10">
