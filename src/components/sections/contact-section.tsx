@@ -29,7 +29,7 @@ export default function ContactSection() {
           Contact
         </h2>
         <p className="mb-6 text-base dark:text-gray-300 text-slate-500 md:text-lg max-w-xs mx-auto">
-          I'm always open to discussing new projects and opportunities.
+          Want to chat? Drop me a line.
         </p>
         <div className="flex justify-center gap-6">
           {portfolioData.socialLinks.map((link, index) => {
